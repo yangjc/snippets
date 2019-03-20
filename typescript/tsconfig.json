@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "target": "es2018",
+        "strict": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "../release",
+        "rootDir": ".",
+        "experimentalDecorators": true,
+        "lib": [
+            "esnext",
+            "dom"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

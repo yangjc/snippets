@@ -1,0 +1,32 @@
+/* nginx config
+server {
+    ...
+    location / {
+        
+        ...
+        
+        sub_filter '</head>' '\n<link rel="stylesheet" media="all" href="/custom.css" />\n</head>';
+        sub_filter_once on;
+        
+        ...
+        
+        proxy_pass http://gitlab-workhorse;
+    }
+    ...
+}
+*/
+
+@media print {
+    #content-body .js-file-title.file-title-flex-parent {
+        display: none!important;
+    }
+    
+    #content-body .info-well {
+        display: none!important;
+    }
+    
+    pre.code code {
+        white-space: pre-wrap!important;
+        word-wrap: break-word!important;
+    }
+}
