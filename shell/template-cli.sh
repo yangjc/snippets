@@ -10,12 +10,12 @@ optAction="--action"; action="main"
 if [ "$1" == "" -o "$1" == "--help" -o "$1" == "-h" ]; then echo "
 Usage
     $0 $optX=
-"; exit 1; fi
+" >&2; exit 1; fi
 
 # 限制执行用户
 #runUser=root
-#if [ "`id -nu`" != "$runUser" ]; then echo "Should run by user \"$runUser\"."; exit 1; fi
-#if [ "`id -nu`" == "$runUser" ]; then echo "Should not run by user \"$runUser\"."; exit 1; fi
+#if [ "`id -nu`" != "$runUser" ]; then echo "Should run by user \"$runUser\"." >&2; exit 1; fi
+#if [ "`id -nu`" == "$runUser" ]; then echo "Should not run by user \"$runUser\"." >&2; exit 1; fi
 
 # 读取选项和变量赋值
 i=-1
@@ -25,7 +25,7 @@ while [ $# -gt 0 ]; do
 #        $flag*) flag=1;;
 #        $optX=*) x="${1#*=}";;
         $optAction=*) action="${1#*=}";;
-        -*) echo "Unexpected option: $1"; exit 1;;
+        -*) echo "Unexpected option: $1" >&2; exit 1;;
         *) i=$(($i + 1));;
     esac
     if [ "$i" != "$j" ]; then
@@ -37,7 +37,7 @@ while [ $# -gt 0 ]; do
 done
 
 # 检查选项值
-#if [ "$x" == "" ]; then echo "$optX required."; exit 1; fi
+#if [ "$x" == "" ]; then echo "$optX required." >&2; exit 1; fi
 
 # 逻辑函数
 main() {
@@ -46,6 +46,6 @@ main() {
 # 执行分支
 case "$action" in
     main) main;;
-    *) echo "Undefined action: $action"; exit 1;;
+    *) echo "Undefined action: $action" >&2; exit 1;;
 esac
 
