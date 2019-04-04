@@ -1,0 +1,7 @@
+name: dart_snippets
+version: 0.0.0
+
+dependencies:
+  pointycastle: 1.0.1
+
+dev_dependencies:
