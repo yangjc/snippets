@@ -1,0 +1,14 @@
+cat find-env.sample.txt; sed -E 's/\(env:(\w+)(:(|(\w[^)]*)|([^)\w])([^\5]*)\5))?\)/>\1 --- \4\6</' find-env.sample.txt
+
+icae (env:name:'tet"a') ?Fe
+(env:name:"the (??) fee")
+(env:name:#')'#)
+nothing
+1. (env:xxx)))) end
+
+2. (env:yyy:)))) ee
+(env:var:999)tail
+???
+(env:var:this is it!)
+(env:none:"(env:none)")
+
